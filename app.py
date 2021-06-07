@@ -52,11 +52,13 @@ def getAvgFeatureVecs(essays, model, num_features):
 
 #cleaning the data
 def preProcess(text): 
-    a = Make_sentences(text, remove_stopwords=True)
-
-    b = getAvgFeatureVecs(a, )
-
-    return b
+    model = gensim.models.Word2Vec.load("word2vecmodel.bin")
+    clean_test_essays = []
+    clean_test_essays.append(wordlist( text, remove_stopwords=True ))
+    testDataVecs = getAvgFeatureVecs( clean_test_essays, model, 300 )
+    testDataVecs = np.array(testDataVecs)
+    testDataVecs = np.reshape(testDataVecs, (testDataVecs.shape[0], 1, testDataVecs.shape[1]))
+    return testDataVecs
 
 #defining app
 app = flask.Flask(__name__, template_folder = 'templates')
