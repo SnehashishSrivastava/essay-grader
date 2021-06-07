@@ -3,6 +3,7 @@ from keras.models import load_model
 from nltk.corpus import stopwords
 import nltk
 import re
+import gensim
 
 #loading model
 model = load_model('final_lstm.h5')
