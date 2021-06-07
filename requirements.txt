@@ -6,5 +6,4 @@ tensorflow
 gensim
 pandas
 numpy
-os
 scikit-learn
